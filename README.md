@@ -1,5 +1,11 @@
 # AI Agents RAG
-Creating a basic AI Agents using Gemini API or locally downloaded LLMs using Ollama to extract information using available dataset and PDF file. The following are the steps to run this repo:
+Creating a basic AI Agents using Gemini API or locally downloaded LLMs using Ollama/Hugging Face to extract information using available dataset and PDF file. The following are the steps to run this repo:
+- Clone this repo using the commands below:
+  ```bash
+  git clone https://github.com/usman619/ai_agents_RAG.git
+  cd ai_agents_RAG
+  code .
+  ```
 - Create the python virtual environment using the following commands:
     ```bash
     python -m venv env
@@ -9,7 +15,10 @@ Creating a basic AI Agents using Gemini API or locally downloaded LLMs using Oll
     ```bash
     pip install -r requirements.txt
     ```
-
+- Run this repo using the command below:
+  ```bash
+  python main.py
+  ```
 ## Example Outputs:
 - Input: What is the population of Pakistan?
 ```bash
