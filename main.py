@@ -1,3 +1,17 @@
+# ================== Embedding Model ==================
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.core.settings import Settings
+
+local_embed_model = HuggingFaceEmbedding(
+    model_name="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    device="cpu"
+    )
+
+Settings.embed_model = local_embed_model
+
+# =====================================================
+
+
 import os
 from dotenv import load_dotenv
 import pandas as pd
@@ -9,6 +23,7 @@ from note_engine import note_engine
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
 from llama_index.llms import gemini
+from pdf import pakistan_engine
 
 load_dotenv()
 
@@ -20,8 +35,6 @@ population_df = pd.read_csv(population_path)
 
 # Using Gemini API
 llm = Gemini(api_key=os.getenv("GEMINI_API_KEY"), model="models/gemini-1.5-flash")
-
-
 
 population_query_engine = PandasQueryEngine(df=population_df, verbose=True, llm=llm, instruction_str=instruction_str)
 
@@ -35,6 +48,13 @@ tools = [
         metadata=ToolMetadata(
             name="population_data",
             description="This is the information about the world population and demographics."
+        ),
+    ),
+    QueryEngineTool(
+        query_engine=pakistan_engine, 
+        metadata=ToolMetadata(
+            name="pakistan_data",
+            description="This is detailed information about the country called Pakistan."
         ),
     ),
 ]

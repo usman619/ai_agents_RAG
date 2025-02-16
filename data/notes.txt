@@ -1,1 +1,2 @@
 Coding Note: I love coding in Python
+Pakistan's Administrative Units: Pakistan's administrative units include four provinces: Punjab, Sindh, Khyber Pakhtunkhwa (KPK), and Balochistan; Islamabad Capital Territory; and the territories of Azad Jammu and Kashmir (AJK) and Gilgit-Baltistan (census data pending approval).
